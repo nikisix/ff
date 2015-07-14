@@ -1,7 +1,17 @@
-[[ Installation ]]
+ _____         _     _____ _ _           
+|  ___|_ _ ___| |_  |  ___(_) | ___  ___ 
+| |_ / _` / __| __| | |_  | | |/ _ \/ __|
+|  _| (_| \__ \ |_  |  _| | | |  __/\__ \
+|_|  \__,_|___/\__| |_|   |_|_|\___||___/
+                                         
+[[ Requirements ]]
 Stock python should be enough. If you encounter bugs, make sure your python installation includes the imports used.
 Still trying to figure out the install script..Thinking about an alias or bash function in the .bashrc.. 
 Any pointers appreciated
+
+[[ Installation ]]
+curl -O https://raw.githubusercontent.com/nikisix/ff/master/install.sh
+sh install.sh
 
 [[ Execution ]]
 . ff.sh

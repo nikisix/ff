@@ -1,7 +1,7 @@
 mkdir -p /opt/ff
 set FF_DIR=/opt/ff
 cd $FF_DIR
-curl -o "https://github.com/nikisix/ff/ff.sh"
-curl -o "https://github.com/nikisix/ff/ff.py"
-curl -o "https://github.com/nikisix/ff/README"
+curl -o "https://raw.githubusercontent.com/nikisix/ff/master/ff.sh"
+curl -o "https://raw.githubusercontent.com/nikisix/ff/master/ff.py"
+curl -o "https://raw.githubusercontent.com/nikisix/ff/master/README"
 cat "alias ff='. $FF_DIR/ff.sh'" >> ~/.bashrc
