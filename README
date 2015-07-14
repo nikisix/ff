@@ -1,5 +1,7 @@
 [[ Installation ]]
 Stock python should be enough. If you encounter bugs, make sure your python installation includes the imports used.
+Still trying to figure out the install script..Thinking about an alias or bash function in the .bashrc.. 
+Any pointers appreciated
 
 [[ Execution ]]
 . ff.sh
@@ -7,4 +9,3 @@ Stock python should be enough. If you encounter bugs, make sure your python inst
 Note that we use the "dot" operator here to run the program in the current process rather than in a subprocess with 
 which would happen with something like: "sh ff.sh"
 
-It's also worth considering installing this in the .bashrc as a stored function
