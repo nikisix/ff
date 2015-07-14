@@ -13,6 +13,9 @@ Any pointers appreciated
 curl -O https://raw.githubusercontent.com/nikisix/ff/master/install.sh
 sh install.sh
 
+Note: this script assumes that you have a .bashrc, if you're on osx you probably have a .bash_profile. Simply
+change install.sh line to from .bashrc -> .bash_profile and you should be fine
+
 [[ Execution ]]
 . ff.sh
 
