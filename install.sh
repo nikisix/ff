@@ -1,3 +1,4 @@
+#!/bin/bash
 FF_DIR=~/.ff
 mkdir $FF_DIR
 cd $FF_DIR
