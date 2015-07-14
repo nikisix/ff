@@ -9,3 +9,6 @@ Any pointers appreciated
 Note that we use the "dot" operator here to run the program in the current process rather than in a subprocess with 
 which would happen with something like: "sh ff.sh"
 
+[[ TODO ]]
+Separate or color files and directories different colors
+Organize files and dirs into columns instead of just a list

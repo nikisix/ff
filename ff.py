@@ -1,4 +1,6 @@
 #!/usr/bin/python
+## author nickiVI
+## special thanks to danny cansis and John1024@github for tips and pointers along the way
 import os
 import sys
 import termios
@@ -24,7 +26,22 @@ line=1
 position=0
 inkey_buffer=1
 score=0
-
+HELP_MSG="""
+ _____         _     _____ _ _           
+|  ___|_ _ ___| |_  |  ___(_) | ___  ___ 
+| |_ / _` / __| __| | |_  | | |/ _ \/ __|
+|  _| (_| \__ \ |_  |  _| | | |  __/\__ \\
+|_|  \__,_|___/\__| |_|   |_|_|\___||___/
+author: nickiVI 
+commands:
+h - file left
+j - (down) enter dir
+k - up dir
+l - file right
+q - exit without changing dirs
+enter - change dir to currently selected and exit
+e - preview the file (with less)
+"""
 def inkey():
     fd=sys.stdin.fileno()
     remember_attributes=termios.tcgetattr(fd)
@@ -45,12 +62,17 @@ if __name__ == '__main__':
     position = 0
     while 1: 
         os.system("clear")
+        print HELP_MSG
         curdir = os.listdir('.')
+        print "PARENT DIR"
+        print "||||||||||||||||||||||||||||||||||||||||||||||||||"
         print os.listdir('..')
         print "||||||||||||||||||||||||||||||||||||||||||||||||||\n"
+        print "CURRENT DIR"
         print os.getcwd()
-        print "\n||||||||||||||||||||||||||||||||||||||||||||||||||"
+        print "||||||||||||||||||||||||||||||||||||||||||||||||||"
         print formatdir(curdir, position)
+        print "||||||||||||||||||||||||||||||||||||||||||||||||||"
         k=inkey()
         if   k == 'q': break
         elif k == 'l': 
@@ -65,6 +87,8 @@ if __name__ == '__main__':
                 if os.path.isdir('./'+curdir[position]):
                     os.chdir('./'+curdir[position])
                     position = 0
+        elif k == 'e':
+            os.system("less "+'./'+curdir[position])
         elif k == '\r':
             os.system("clear")
             print str(os.getcwd())
