@@ -6,4 +6,5 @@ curl -O "https://raw.githubusercontent.com/nikisix/ff/master/ff.sh"
 curl -O "https://raw.githubusercontent.com/nikisix/ff/master/ff.py"
 curl -O "https://raw.githubusercontent.com/nikisix/ff/master/README"
 echo "alias ff='. $FF_DIR/ff.sh'" >> ~/.bashrc
+chmod 775 $FF_DIR/ff.py $FF_DIR/ff.sh
 source ~/.bashrc
