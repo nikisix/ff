@@ -4,7 +4,7 @@ FF_PWD_DIR="${TMPDIR-/tmp}ff-$FF_USER"
 mkdir -p $FF_PWD_DIR
 FF_PWD_FILE="$FF_PWD_DIR/ff.pwd.$$"
 touch $FF_PWD_FILE
-python /opt/ff/ff.py "$FF_PWD_FILE" "$@"
+python ~/.ff/ff.py "$FF_PWD_FILE" "$@"
 
 if test -r "$FF_PWD_FILE"; then
         FF_PWD="`cat "$FF_PWD_FILE"`"
