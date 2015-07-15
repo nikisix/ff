@@ -11,7 +11,9 @@ Any pointers appreciated
 
 [[ Installation ]]
 curl -O https://raw.githubusercontent.com/nikisix/ff/master/install.sh
-sh install.sh
+bash install.sh
+source .bashrc
+(or source .bash_profile if osx is our thing, change the install.sh script to write there instead of .bashrc ofc)
 
 Note: this script assumes that you have a .bashrc, if you're on osx you probably have a .bash_profile. Simply
 change install.sh line to from .bashrc -> .bash_profile and you should be fine
@@ -25,3 +27,4 @@ which would happen with something like: "sh ff.sh"
 [[ TODO ]]
 Separate or color files and directories different colors
 Organize files and dirs into columns instead of just a list
+Jedi-mode - no help message/title
