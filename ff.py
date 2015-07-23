@@ -79,14 +79,14 @@ def colorize(text, foreground_color):
 def print2d(dirlist, num_cols, files_per_col):
     
 def format_dir(dirlist):
-    h, w  = terminal_size()
-    max_file_len = max([len(l) for l in dirlist])
-    num_columns = w/max_file_len
-    files_per_column = math.ceil(len(dirlist)/num_columns)
-    print2d(dirlist, num_columns, files_per_column)
-#     for l in dirlist:
-#         if os.path.isdir('../'+l): print colorize(l,'blue'),
-#         else: print l,
+#     h, w  = terminal_size()
+#     max_file_len = max([len(l) for l in dirlist])
+#     num_columns = w/max_file_len
+#     files_per_column = math.ceil(len(dirlist)/num_columns)
+#     print2d(dirlist, num_columns, files_per_column)
+    for l in dirlist:
+        if os.path.isdir('../'+l): print colorize(l,'blue'),
+        else: print l,
 
 def format_cur_dir(dirlist, position):
     i = 0;
