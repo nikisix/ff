@@ -93,14 +93,14 @@ def print2d(dirlist, num_cols, files_per_col,  position=-1, rel_level=0):
 
 def print_display(num_cols, files_per_col):
     os.system("clear")
-#     print HELP_MSG
+    print HELP_MSG
     print "|||PARENT DIR|||||||||||||||||||||||||||||||||||||"
     print2d(os.listdir('..'), num_cols, files_per_col, position=-1, rel_level=1)
-    print "\n||||||||||||||||||||||||||||||||||||||||||||||||||"
+    print "||||||||||||||||||||||||||||||||||||||||||||||||||"
     print os.getcwd()
     print "||||CURRENT DIR|||||||||||||||||||||||||||||||||||"
     print2d(os.listdir('.'), num_cols, files_per_col, position=position, rel_level=0)
-    print "\n||||||||||||||||||||||||||||||||||||||||||||||||||"
+    print "||||||||||||||||||||||||||||||||||||||||||||||||||"
 
 if __name__ == '__main__':
     child=0; position = 0; parent=0; 
