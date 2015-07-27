@@ -14,12 +14,12 @@ HELP_MSG="""\
 |  ___|_ _ ___| |_  |  ___(_) | ___  ___    j - file down
 | |_ / _` / __| __| | |_  | | |/ _ \/ __|   k - file up
 |  _| (_| \__ \ |_  |  _| | | |  __/\__ \\  l - file right
-|_|  \__,_|___/\__| |_|   |_|_|\___||___/
-author: nickiVI 
+|_|  \__,_|___/\__| |_|   |_|_|\___||___/   d - down a dir
+author: nickiVI                             f - up a dir 
 commands:
-q - exit without changing dirs
 enter - change dir to currently selected and exit
-e - preview the file (with less)"""
+q - exit without changing dirs
+e - preview the file (with less)\n"""
 # A basic clear screen and cursor removal for program start...
 os.system("clear")
 
