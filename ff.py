@@ -68,7 +68,7 @@ def colorize(text, foreground_color):
     return CSI + str(fg_colormap[foreground_color])+'m'+text+CSI_Reset
 
 def color_and_pad_filenames(dirlist, position, rel_level):
-    max_file_len = max([len(l) for l in dirlist]) + 2 if len(dirlist) > 0 else 1
+    max_file_len = max([len('../'*rel_level+l) for l in dirlist]) + 2 if len(dirlist) > 0 else 1
     ret=[]; i = 0
     for f in dirlist:
         num_spaces = max_file_len - len(str(f))
