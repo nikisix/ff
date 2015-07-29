@@ -10,10 +10,10 @@ import subprocess
 from subprocess import Popen
 
 HELP_MSG="""\
- _____         _     _____ _ _              h - file left 
-|  ___|_ _ ___| |_  |  ___(_) | ___  ___    j - file down
-| |_ / _` / __| __| | |_  | | |/ _ \/ __|   k - file up
-|  _| (_| \__ \ |_  |  _| | | |  __/\__ \\  l - file right
+ _____         _     _____ _ _              h - left 
+|  ___|_ _ ___| |_  |  ___(_) | ___  ___    j - down
+| |_ / _` / __| __| | |_  | | |/ _ \/ __|   k - up
+|  _| (_| \__ \ |_  |  _| | | |  __/\__ \\  l - right
 |_|  \__,_|___/\__| |_|   |_|_|\___||___/   d - down a dir
 author: nickiVI                             f - up a dir 
 commands:
@@ -40,10 +40,7 @@ global position
 global remember_attributes
 global inkey_buffer
 
-screen_array="*"
-character="a"
-remember_attributes="2015 zen"
-line=1
+arrow_dict = {65:'k',66:'j',67:'l',68:'h'}
 position=0
 inkey_buffer=1
 def inkey():
@@ -51,6 +48,8 @@ def inkey():
     remember_attributes=termios.tcgetattr(fd)
     tty.setraw(sys.stdin.fileno())
     character=sys.stdin.read(inkey_buffer)
+    if ord(character)==27: #arrow key comming in
+        character = arrow_dict[[ord(c) for c in sys.stdin.read(2)][1]]
     termios.tcsetattr(fd, termios.TCSADRAIN, remember_attributes)
     return character
 
