@@ -68,13 +68,15 @@ def colorize(text, foreground_color):
     return CSI + str(fg_colormap[foreground_color])+'m'+text+CSI_Reset
 
 def color_and_pad_filenames(dirlist, position, rel_level):
-    max_file_len = max([len('../'*rel_level+l) for l in dirlist]) + 2 if len(dirlist) > 0 else 1
+    max_file_len = max([len('../'*rel_level+l) for l in dirlist]) + 1 if len(dirlist) > 0 else 1
+    #adjust max file len for added ../'s
+    max_file_len = max_file_len - rel_level*3
     ret=[]; i = 0
     for f in dirlist:
         num_spaces = max_file_len - len(str(f))
         if position==i:    f = colorize(f,'magenta')
         else:    f = colorize(f,'blue') if os.path.isdir('../'*rel_level+f) else f
-        ret.append(f+'.'*num_spaces)
+        ret.append(f+'_'*num_spaces+'|')
         i+=1
     return ret
 
@@ -84,8 +86,8 @@ def print2d(dirlist, num_cols, files_per_col,  position=-1, rel_level=0):
     dirlist = color_and_pad_filenames(dirlist, position, rel_level) 
     for i in range(num_cols):  
         start = i*files_per_col
-        end   = i*files_per_col+files_per_col if len(dirlist) >= i*files_per_col+files_per_col else len(dirlist)
-        if i == num_cols:   end = len(dirlist)
+        end   = i*files_per_col+files_per_col if i*files_per_col+files_per_col < len(dirlist) else len(dirlist)
+#         if i == num_cols:   end = len(dirlist)
         fray.append(dirlist[start:end])
     max_rows = max([len(a) for a in fray])
     for r in range(max_rows):
@@ -93,7 +95,7 @@ def print2d(dirlist, num_cols, files_per_col,  position=-1, rel_level=0):
 
 def print_display(num_cols, files_per_col):
     os.system("clear")
-    print HELP_MSG
+#     print HELP_MSG
     print "|||PARENT DIR|||||||||||||||||||||||||||||||||||||"
     print2d(os.listdir('..'), num_cols, files_per_col, position=-1, rel_level=1)
     print "||||||||||||||||||||||||||||||||||||||||||||||||||"
@@ -104,13 +106,14 @@ def print_display(num_cols, files_per_col):
 
 if __name__ == '__main__':
     child=0; position = 0; parent=0; 
-    h, w  = terminal_size()
+    term_height, term_width  = terminal_size()
     while 1: 
         curdir = os.listdir('.')
         #TODO can only see one out of every two directories
         max_file_len = max([len(l) for l in curdir]) if len(curdir) > 0 else 1 #don't divide by 0
-        num_cols = int(w/max_file_len)
+        num_cols = int(term_width/max_file_len)
         files_per_col = int(math.ceil(float(len(curdir))/num_cols))
+#         files_per_col = len(curdir)/num_cols#int(math.ceil(float(len(curdir))/num_cols))
         print_display(num_cols, files_per_col)
         k=inkey()
         if   k == 'q': break
