@@ -95,7 +95,7 @@ def print2d(dirlist, num_cols, files_per_col,  position=-1, rel_level=0):
 
 def print_display(num_cols, files_per_col):
     os.system("clear")
-#     print HELP_MSG
+    print HELP_MSG
     print "|||PARENT DIR|||||||||||||||||||||||||||||||||||||"
     print2d(os.listdir('..'), num_cols, files_per_col, position=-1, rel_level=1)
     print "||||||||||||||||||||||||||||||||||||||||||||||||||"
